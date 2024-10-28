@@ -19,6 +19,7 @@ def sort_by_date(requests: list[dict], reverse: bool = True, format_: str = "%Y-
     """Принимает на вход requests типа list[dict], а также state типа str.
     Сортирует requests по дате с выбранным значением сортировки.
     Возвращает requests типа list[dict]."""
+
     def compare(request: dict) -> float:
         if "date" in request:
             time_: str = request["date"]

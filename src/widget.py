@@ -21,8 +21,15 @@ def mask_account_card(card_info: str) -> str:
 def get_date(date: str) -> str:
     """Принимает дату типа str в формате%Y-%m-%dT%H:%M:%S.%f.
     Возвращает дату типа str в формате %d.%m.%Y."""
+    if not isinstance(date, str):
+        return "Date type incorrect"
 
-    reformatted = strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
+    date.strip()
+
+    try:
+        reformatted = strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
+    except ValueError:
+        return "Date format incorrect"
 
     return strftime("%d.%m.%Y", reformatted)
 
@@ -38,8 +45,6 @@ if __name__ == "__main__":
         "Visa Gold 5999414228426353",
         "Счет 73654108430135874305",
     ]
-
-    print(get_date("2024-03-11T02:26:18.671407"))
 
     for card in data_info_cards:
         print(mask_account_card(card_info=card))
