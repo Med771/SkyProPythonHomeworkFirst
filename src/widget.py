@@ -4,6 +4,9 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(card_info: str) -> str:
+    """Принимает информацию о карте типа str в форматах Card Type Number / Account Number.
+    В зависимости от ответа, возвращает str в форматах Card Type .... ..** **** .... / Account **...."""
+
     info_values = card_info.split()
 
     if len(info_values) == 3:
@@ -16,6 +19,9 @@ def mask_account_card(card_info: str) -> str:
 
 
 def get_date(date: str) -> str:
+    """Принимает дату типа str в формате%Y-%m-%dT%H:%M:%S.%f.
+    Возвращает дату типа str в формате %d.%m.%Y."""
+
     reformatted = strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
 
     return strftime("%d.%m.%Y", reformatted)

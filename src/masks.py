@@ -2,12 +2,17 @@ from typing import Union
 
 
 def get_mask_card_number(number: Union[str, int]) -> str:
+    """Принимает на вход number (номер карты) типов int | str.
+    Возвращает скрытый номер карты типа str в формате .... ..** **** ...."""
+
     number = str(number)
 
     return f"{number[:4]} {number[4:6]}** **** {number[-4:]}"
 
 
 def get_mask_account(number: Union[str, int]) -> str:
+    """Принимает на вход number (номер карты) типов int | str.
+        Возвращает скрытый номер карты типа str в формате **...."""
     number = str(number)
 
     return f"**{number[-4:]}"

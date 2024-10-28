@@ -2,6 +2,10 @@ from time import mktime, strptime, time
 
 
 def filter_by_state(requests: list[dict], state: str = "EXECUTED") -> list[dict]:
+    """Принимает на вход requests типа list[dict], а также state типа str.
+    Создаёт filter_transaction_req, а после заносит данные из requests, в которых state равны друг другу.
+    Возвращает filter_transaction_req"""
+
     filter_transaction_req: list[dict] = []
 
     for request in requests:
@@ -12,6 +16,9 @@ def filter_by_state(requests: list[dict], state: str = "EXECUTED") -> list[dict]
 
 
 def sort_by_date(requests: list[dict], reverse: bool = True, format_: str = "%Y-%m-%dT%H:%M:%S.%f") -> list[dict]:
+    """Принимает на вход requests типа list[dict], а также state типа str.
+    Сортирует requests по дате с выбранным значением сортировки.
+    Возвращает requests типа list[dict]."""
     def compare(request: dict) -> float:
         if "date" in request:
             time_: str = request["date"]
