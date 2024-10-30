@@ -2,7 +2,7 @@ import pytest
 
 
 @pytest.fixture(scope="module")
-def numbers_cards():
+def numbers_cards() -> list[tuple]:
     return [
         (1596837868705199, "1596 83** **** 5199"),
         ("7158300734726758", "7158 30** **** 6758"),
@@ -22,7 +22,7 @@ def numbers_cards():
 
 
 @pytest.fixture()
-def accounts():
+def accounts() -> list[tuple]:
     return [
         (64686473678894779589, "**9589"),
         ("35383033474447895560", "**5560"),
@@ -39,7 +39,7 @@ def accounts():
 
 
 @pytest.fixture()
-def dates():
+def dates() -> list[tuple]:
     return [
         ("2024-03-11T02:26:18.671407", "11.03.2024"),
         ("2014-02-11T02:26:18.671407", "11.02.2014"),
@@ -55,7 +55,7 @@ def dates():
 
 
 @pytest.fixture()
-def accounts_cards():
+def accounts_cards() -> list[tuple]:
     return [
         ("Maestro 1596837868705199", "Maestro 1596 83** **** 5199"),
         ("Счет 64686473678894779589", "Счет **9589"),
@@ -73,7 +73,7 @@ def accounts_cards():
 
 
 @pytest.fixture()
-def transaction_requests_for_filter():
+def transaction_requests_for_filter() -> list[tuple]:
     filter_answers = [
         (
             [
@@ -115,7 +115,7 @@ def transaction_requests_for_filter():
 
 
 @pytest.fixture()
-def transaction_requests_by_sort():
+def transaction_requests_by_sort() -> list[tuple]:
     sort_answers = [
         (
             [

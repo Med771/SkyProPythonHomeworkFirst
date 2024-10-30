@@ -10,13 +10,13 @@ def filter_by_currency(transactions: list[dict], currency_code: str) -> Generato
             if not isinstance(transaction, dict):
                 continue
 
-            operation_amount = transaction.get('operationAmount', {})
-            currency = operation_amount.get('currency', {})
+            operation_amount = transaction.get("operationAmount", {})
+            currency = operation_amount.get("currency", {})
 
             if currency_code == currency["code"]:
                 yield transaction
 
-    yield None
+    return None
 
 
 def transaction_descriptions(transactions: list[dict]) -> Generator[str, None, None]:
@@ -28,10 +28,10 @@ def transaction_descriptions(transactions: list[dict]) -> Generator[str, None, N
             if not isinstance(transaction, dict):
                 continue
 
-            if 'description' in transaction:
-                yield transaction['description']
+            if "description" in transaction:
+                yield transaction["description"]
 
-    yield None
+    return None
 
 
 def card_number_generator(start_number_card: int, end_number_card: int) -> Generator[str, None, None]:
@@ -45,10 +45,10 @@ def card_number_generator(start_number_card: int, end_number_card: int) -> Gener
 
                 yield f"{card_number[:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:]}"
 
-    yield None
+    return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     gen = card_number_generator(1, 5)
 
     while True:
